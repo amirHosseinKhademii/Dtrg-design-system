@@ -4,6 +4,7 @@ import { classNames } from "utils";
 
 import { TableHead } from "./table-head";
 import { TableBody } from "./table-body";
+import { ITable } from "./types/table";
 
 export const Table = memo(
   ({

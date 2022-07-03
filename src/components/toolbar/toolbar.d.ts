@@ -1,3 +1,3 @@
-interface IToolbar {
-  children?: ReactNode
+export interface IToolbar {
+  children?: ReactNode;
 }

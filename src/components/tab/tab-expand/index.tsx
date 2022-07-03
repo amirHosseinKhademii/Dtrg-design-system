@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { classNames } from "utils";
+import { ITab } from "../tab";
 
 export const TabExpand = memo(({ expandable, children, open }: ITab) => {
   if (expandable && open)

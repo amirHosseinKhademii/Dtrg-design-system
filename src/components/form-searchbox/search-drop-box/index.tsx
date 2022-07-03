@@ -1,6 +1,7 @@
-import { Fragment, memo } from 'react'
+import { Fragment, memo } from "react";
+import { ISearch } from "../types/search-box";
 
-export const SearchBoxDropBox = memo((props: Omit<ISearch, 'url'>) => {
+export const SearchBoxDropBox = memo((props: Omit<ISearch, "url">) => {
   return (
     <Fragment>
       <div className="absolute left-0 top-[80px] bg-white z-50 w-full rounded border border-blue-300  flex flex-col items-start p-3 h-auto space-y-2 max-h-[300px] overflow-y-auto">
@@ -9,9 +10,9 @@ export const SearchBoxDropBox = memo((props: Omit<ISearch, 'url'>) => {
             className=" w-full flex items-center space-x-2 cursor-pointer"
             key={item.id}
             onClick={() => {
-              props.onChange(item)
-              props.setIsOpen(false)
-              props.setParams({ search: '' })
+              props.onChange(item);
+              props.setIsOpen(false);
+              props.setParams({ search: "" });
             }}
           >
             <span className="text-gray-600 cursor-pointer">
@@ -27,5 +28,5 @@ export const SearchBoxDropBox = memo((props: Omit<ISearch, 'url'>) => {
         ></div>
       )}
     </Fragment>
-  )
-})
+  );
+});

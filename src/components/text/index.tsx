@@ -1,28 +1,29 @@
-import { ElementType } from 'react'
+import { ElementType } from "react";
+import { TText } from "./text";
 
-export const Text = <E extends ElementType = 'span'>({
+export const Text = <E extends ElementType = "span">({
   className,
   size,
   children,
   slot,
   as,
 }: TText<E>) => {
-  const Component = as || 'span'
+  const Component = as || "span";
   return (
     <Component
       slot={slot}
       className={`${
         !className ||
-        (!className.includes('text') && 'text-gray-600 dark:text-gray-400')
+        (!className.includes("text") && "text-gray-600 dark:text-gray-400")
       } ${
-        size === 'header'
-          ? 'text-3xl'
-          : size === 'title'
-          ? 'text-2xl'
-          : 'text-base'
+        size === "header"
+          ? "text-3xl"
+          : size === "title"
+          ? "text-2xl"
+          : "text-base"
       } ${className}`}
     >
       {children}
     </Component>
-  )
-}
+  );
+};

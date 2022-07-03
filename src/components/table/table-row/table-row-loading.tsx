@@ -1,5 +1,6 @@
 import { Fragment, memo } from "react";
 import { classNames } from "utils";
+import { ITableHead } from "../types/table";
 
 export const TableRowLoading = memo(({ columns }: ITableHead) => {
   return (

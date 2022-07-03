@@ -1,5 +1,6 @@
-import { Button } from 'components/button'
-import { memo } from 'react'
+import { Button } from "components/button";
+import { memo } from "react";
+import { IConfirm } from "../types/confirm";
 
 export const ConfirmActions = memo(
   ({ onConfirm, onCancel, loading }: Partial<IConfirm>) => {
@@ -21,6 +22,6 @@ export const ConfirmActions = memo(
           Confirm
         </Button>
       </div>
-    )
+    );
   }
-)
+);

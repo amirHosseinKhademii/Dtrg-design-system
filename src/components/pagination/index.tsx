@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Button } from "components/button";
 import { classNames } from "utils";
+import { IPagination } from "./pagination";
 
 const pager = (total: number, page: number) => {
   const totalPages = Math.ceil(total / 10);

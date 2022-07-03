@@ -1,5 +1,6 @@
 import { Fragment, memo } from "react";
 import { classNames } from "utils";
+import { IToolbar } from "./toolbar";
 
 export const Toolbar = memo(({ children }: IToolbar) => {
   return (

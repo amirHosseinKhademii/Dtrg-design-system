@@ -1,5 +1,6 @@
-import { memo } from 'react'
-import { classNames } from 'utils'
+import { memo } from "react";
+import { classNames } from "utils";
+import { IDropdownOption } from "./types/drop-down-option";
 
 export const DropDownOption = memo(
   ({ children, onClick, active }: IDropdownOption) => {
@@ -8,14 +9,14 @@ export const DropDownOption = memo(
         slot="wrapper"
         className={classNames(
           active
-            ? 'text-blue-400 font-semibold  '
-            : 'text-light dark:text-dark',
-          ' cursor-pointer hover:opacity-80 px-4 pt-3 text-sm'
+            ? "text-blue-400 font-semibold  "
+            : "text-light dark:text-dark",
+          " cursor-pointer hover:opacity-80 px-4 pt-3 text-sm"
         )}
         onClick={onClick}
       >
         {children}
       </span>
-    )
+    );
   }
-)
+);

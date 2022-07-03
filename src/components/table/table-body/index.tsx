@@ -1,5 +1,6 @@
-import { TableRow } from '../table-row'
-import { TableRowLoading } from '../table-row/table-row-loading'
+import { TableRow } from "../table-row";
+import { TableRowLoading } from "../table-row/table-row-loading";
+import { ITableBody } from "../types/table";
 
 export const TableBody = ({
   loading,
@@ -16,7 +17,7 @@ export const TableBody = ({
           <TableRowLoading key={item} columns={columns} />
         ))}
       </tbody>
-    )
+    );
   return (
     <tbody className="w-full">
       {(data || []).map((item: any, index: number) => (
@@ -33,5 +34,5 @@ export const TableBody = ({
         />
       ))}
     </tbody>
-  )
-}
+  );
+};

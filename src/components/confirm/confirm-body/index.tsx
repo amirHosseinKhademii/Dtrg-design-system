@@ -1,4 +1,5 @@
-import { Fragment, memo } from 'react'
+import { Fragment, memo } from "react";
+import { IConfirm } from "../types/confirm";
 
 export const ConfirmBody = memo(({ title, description }: Partial<IConfirm>) => {
   return (
@@ -10,5 +11,5 @@ export const ConfirmBody = memo(({ title, description }: Partial<IConfirm>) => {
         {description}
       </span>
     </Fragment>
-  )
-})
+  );
+});

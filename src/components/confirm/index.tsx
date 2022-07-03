@@ -1,15 +1,16 @@
-import { memo } from 'react'
-import { Modal } from 'components/modal'
+import { memo } from "react";
+import { Modal } from "components/modal";
 
-import { ConfirmActions } from './confirm-actions'
-import { ConfirmBody } from './confirm-body'
+import { ConfirmActions } from "./confirm-actions";
+import { ConfirmBody } from "./confirm-body";
+import { IConfirm } from "./types/confirm";
 
 export const Confirm = memo(
   ({
     onConfirm,
     onCancel,
     description,
-    title = 'Are You Sure?',
+    title = "Are You Sure?",
     loading = false,
   }: Partial<IConfirm>) => {
     return (
@@ -24,6 +25,6 @@ export const Confirm = memo(
           loading={loading}
         />
       </Modal>
-    )
+    );
   }
-)
+);

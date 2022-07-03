@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { classNames } from "utils";
+import { ITableCell } from "../types/table";
 
 export const TableCell = memo(
   ({ column, index, item, columns }: ITableCell) => {

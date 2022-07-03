@@ -4,6 +4,7 @@ import { classNames } from "utils";
 
 import { DropDownButton } from "./drop-down-button";
 import { DropDownBox } from "./drop-down-box";
+import { IDropdown } from "./types/drop-down";
 
 export const DropDown = memo(
   ({ className, label, children, active = false, icon }: IDropdown) => {

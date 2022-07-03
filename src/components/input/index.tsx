@@ -47,6 +47,7 @@ export const inputCoreActualValue = (
         return value.join(",");
       } else return "";
     default:
+      return "";
       break;
   }
 };

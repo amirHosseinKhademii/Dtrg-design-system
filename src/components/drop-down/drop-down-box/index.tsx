@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { classNames } from "utils";
+import { IDropdown } from "../types/drop-down";
 
 export const DropDownBox = memo(({ open, children }: IDropdown) => {
   return (

@@ -1,7 +1,7 @@
 {
-  "name": "golrang-design-system",
+  "name": "dtrg-design-system",
   "description": "React design system",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "main": "dist/design.js",
   "types": "dist/index.d.ts",
   "module": "dist/design.modern.js",
@@ -9,13 +9,13 @@
   "files": [
     "dist/**/*"
   ],
-  "author": "Golrang",
+  "author": "Amir hossein khademi",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:amirHosseinKhademii/Design-system"
+    "url": "ssh://git@github.com:amirHosseinKhademii/Dtrg-design-system"
   },
-  "homepage": "https://github.com/amirHosseinKhademii/Design-system",
+  "homepage": "https://github.com/amirHosseinKhademii/Dtrg-design-system",
   "scripts": {
     "dev": "webpack serve --config webpack.config.js",
     "sb": "start-storybook -p 6006",

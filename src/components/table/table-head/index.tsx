@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { classNames } from "utils";
+import { ITableHead } from "../types/table";
 
 export const TableHead = memo(({ columns, loading }: ITableHead) => {
   return (

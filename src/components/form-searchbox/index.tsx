@@ -1,21 +1,22 @@
-import { useService } from 'hooks/use-service'
-import { useValidation } from 'hooks/use-validation'
-import { memo, useState } from 'react'
-import { Controller } from 'react-hook-form'
-import { SearchBoxCore } from './search-box-core'
+import { useService } from "hooks/use-service";
+import { useValidation } from "hooks/use-validation";
+import { memo, useState } from "react";
+import { Controller } from "react-hook-form";
+import { SearchBoxCore } from "./search-box-core";
+import { ISearch } from "./types/search-box";
 
 export const FormSearchBox = memo((props: ISearch) => {
-  const [params, setParams] = useState({ [props.paramKey]: null })
-  const [isOpen, setIsOpen] = useState(false)
-  const { useGet } = useService()
-  const { validate } = useValidation({ required: props.required })
+  const [params, setParams] = useState({ [props.paramKey]: null });
+  const [isOpen, setIsOpen] = useState(false);
+  const { useGet } = useService();
+  const { validate } = useValidation({ required: props.required });
 
   const { data, isLoading } = useGet({
     key: [props.url, params],
     url: props.url,
     enabled: isOpen,
     refetchOnWindowFocus: false,
-  })
+  });
 
   return (
     <Controller
@@ -44,5 +45,5 @@ export const FormSearchBox = memo((props: ISearch) => {
         />
       )}
     />
-  )
-})
+  );
+});

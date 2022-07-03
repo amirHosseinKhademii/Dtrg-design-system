@@ -3,6 +3,7 @@ import { classNames } from "utils";
 import { TabExpand } from "./tab-expand";
 import { TabActions } from "./tab-actions";
 import { useTab } from "./use-tab";
+import { ITab } from "./tab";
 
 export const Tab = ({
   children,

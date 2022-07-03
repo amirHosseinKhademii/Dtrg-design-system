@@ -1,4 +1,5 @@
-import { useCallback } from 'react'
+import { useCallback } from "react";
+import { IUseValidation } from "./use-validation";
 import {
   laterValidation,
   maxValidation,
@@ -8,7 +9,7 @@ import {
   hoursValidation,
   minutesValidation,
   numberValidation,
-} from './utils'
+} from "./utils";
 
 export const useValidation = (props: IUseValidation) => {
   const {
@@ -21,51 +22,51 @@ export const useValidation = (props: IUseValidation) => {
     hours,
     minutes,
     number,
-  } = props
+  } = props;
 
   return {
     validate: useCallback(
       (value: any) => {
-        let error
+        let error;
         if (required) {
-          const requiredError = requiredValidation(value, required)
-          error = requiredError ? requiredError : error
+          const requiredError = requiredValidation(value, required);
+          error = requiredError ? requiredError : error;
         }
         if (max) {
-          const maxError = maxValidation(value, max)
-          error = maxError ? maxError : error
+          const maxError = maxValidation(value, max);
+          error = maxError ? maxError : error;
         }
         if (min) {
-          const minError = minValidation(value, min)
-          error = minError ? minError : error
+          const minError = minValidation(value, min);
+          error = minError ? minError : error;
         }
         if (later) {
-          const laterError = laterValidation(value, later)
-          error = laterError ? laterError : error
+          const laterError = laterValidation(value, later);
+          error = laterError ? laterError : error;
         }
         if (precent) {
-          const precentError = precentValidation(value)
-          error = precentError ? precentError : error
+          const precentError = precentValidation(value);
+          error = precentError ? precentError : error;
         }
         if (hours) {
-          const hoursError = hoursValidation(value)
-          error = hoursError ? hoursError : error
+          const hoursError = hoursValidation(value);
+          error = hoursError ? hoursError : error;
         }
         if (minutes) {
-          const minutesError = minutesValidation(value)
-          error = minutesError ? minutesError : error
+          const minutesError = minutesValidation(value);
+          error = minutesError ? minutesError : error;
         }
         if (number) {
-          const numberErr = numberValidation(value)
-          error = numberErr ? numberErr : error
+          const numberErr = numberValidation(value);
+          error = numberErr ? numberErr : error;
         }
         if (validation) {
-          const validationError = validation(value)
-          error = validationError ? validationError : error
+          const validationError = validation(value);
+          error = validationError ? validationError : error;
         }
-        return error
+        return error;
       },
       [required, min, max, later, validation, precent]
     ) as any,
-  }
-}
+  };
+};

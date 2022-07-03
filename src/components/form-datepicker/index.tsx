@@ -1,22 +1,23 @@
-import { useValidation } from 'hooks/use-validation'
-import { memo } from 'react'
-import { Controller } from 'react-hook-form'
-import moment from 'moment'
-import { classNames } from 'utils'
-import { Error } from 'components/error'
-import DatePickerReact from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
+import { useValidation } from "hooks/use-validation";
+import { memo } from "react";
+import { Controller } from "react-hook-form";
+import moment from "moment";
+import { classNames } from "utils";
+import { Error } from "components/error";
+import DatePickerReact from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { TFormDatePicker } from "./types/form-datepicker";
 
-const datePickerBoxClassName = (error: TFormDatePicker['error']) =>
+const datePickerBoxClassName = (error: TFormDatePicker["error"]) =>
   classNames(
-    ' w-full row-between focus:outline-none overflow-hidden cursor-pointer  rounded  text-gray-900  h-12  px-4 absolute top-8 right-0 z-0 bg-white dark:bg-gray-400',
+    " w-full row-between focus:outline-none overflow-hidden cursor-pointer  rounded  text-gray-900  h-12  px-4 absolute top-8 right-0 z-0 bg-white dark:bg-gray-400",
     error
-      ? 'border-2 border-red-400 shadow'
-      : 'border border-gray-300 dark:border-gray-700'
-  )
+      ? "border-2 border-red-400 shadow"
+      : "border border-gray-300 dark:border-gray-700"
+  );
 
 const datePickerBoxValue = (
-  value: TFormDatePicker['value'],
+  value: TFormDatePicker["value"],
   time?: boolean,
   defaultValue?: string
 ) =>
@@ -26,7 +27,7 @@ const datePickerBoxValue = (
       : value.slice(0, 10)
     : defaultValue
     ? defaultValue
-    : 'YYYY-MM-DD'
+    : "YYYY-MM-DD";
 
 export const FormDatePicker = memo(
   ({
@@ -44,14 +45,14 @@ export const FormDatePicker = memo(
       required,
       later,
       validation,
-    })
+    });
 
     return (
       <Controller
         name={name}
         rules={{ validate }}
         render={({ field: { onChange, value }, fieldState: { error } }) => (
-          <div className={classNames('w-full col-start relative', className)}>
+          <div className={classNames("w-full col-start relative", className)}>
             {label && (
               <label className=" mb-2 text-light dark:text-dark">{label}</label>
             )}
@@ -81,6 +82,6 @@ export const FormDatePicker = memo(
           </div>
         )}
       />
-    )
+    );
   }
-)
+);

@@ -1,4 +1,4 @@
-interface IError {
-  error?: FieldError
-  className?: string
-}
+export type IError = {
+  error?: FieldError;
+  className?: string;
+};

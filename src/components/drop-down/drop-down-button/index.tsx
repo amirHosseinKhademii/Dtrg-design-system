@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { classNames } from "utils";
 import { ICChevronRight } from "icons/chevron-right";
+import { IDropdown } from "../types/drop-down";
 
 export const DropDownButton = memo(
   ({ className, icon, label, toggle, open }: IDropdown) => {

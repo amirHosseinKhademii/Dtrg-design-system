@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Error } from "components/error";
 import { classNames } from "utils";
+import { ITextArea } from "./text-area";
 
 export const TextArea = memo((props: ITextArea) => {
   const { className, error, value, ...rest } = props;

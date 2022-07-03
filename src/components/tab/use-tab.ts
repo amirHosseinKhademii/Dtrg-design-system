@@ -1,24 +1,24 @@
-import { useToggle } from 'hooks/use-toggle'
-import { useCallback } from 'react'
+import { useToggle } from "hooks/use-toggle";
+import { useCallback } from "react";
 
 export const useTab = ({
   initialIsOpen,
   expandable,
 }: {
-  initialIsOpen: boolean
-  expandable: boolean
+  initialIsOpen: boolean;
+  expandable: boolean;
 }) => {
-  const { open, toggle } = useToggle(initialIsOpen)
+  const { open, toggle } = useToggle(initialIsOpen);
   return {
     open,
     onExpand: useCallback(
-      (e) => {
+      (e: any) => {
         if (expandable) {
-          e.stopPropagation()
-          toggle()
+          e.stopPropagation();
+          toggle();
         }
       },
       [open]
     ),
-  }
-}
+  };
+};

@@ -1,8 +1,13 @@
-import { useMutation, useQuery, useQueryClient } from 'react-query'
-import { Request } from 'utils'
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import { Request } from "utils";
+import {
+  IUseServiceFetch,
+  IUseServiceMutate,
+  IUseServiceOptimistic,
+} from "./use-service";
 
 export const useService = () => {
-  const client = useQueryClient()
+  const client = useQueryClient();
 
   return {
     client,
@@ -10,26 +15,26 @@ export const useService = () => {
       const asyncGet = async () =>
         await Request.get(url, {
           params: { ...params, ...(key[1] && { ...key[1] }) },
-        })
-      return useQuery(key, asyncGet, { ...rest })
+        });
+      return useQuery(key, asyncGet, { ...rest });
     },
     usePost: ({ url, ...rest }: IUseServiceMutate) => {
       const asyncPost = async ({ payload }: { payload: any }) =>
-        await Request.post(url, payload)
-      return useMutation(asyncPost, { ...rest })
+        await Request.post(url, payload);
+      return useMutation(asyncPost, { ...rest });
     },
     usePut: ({ url, ...rest }: IUseServiceMutate) => {
       const asyncPut = async ({ payload }: { payload: any }) =>
-        await Request.put(url, payload)
+        await Request.put(url, payload);
       return useMutation(asyncPut, {
         ...rest,
-      })
+      });
     },
     useDelete: ({ url, params, ...rest }: IUseServiceMutate) => {
-      const asyncDelete = async () => await Request.delete(url, { params })
+      const asyncDelete = async () => await Request.delete(url, { params });
       return useMutation(asyncDelete, {
         ...rest,
-      })
+      });
     },
     useOptimisticPost: ({
       url,
@@ -39,26 +44,26 @@ export const useService = () => {
       onSuccess,
     }: IUseServiceOptimistic) => {
       const asyncPost = async ({ payload }: { payload: any }) =>
-        await Request.post(url, payload)
+        await Request.post(url, payload);
       return useMutation(asyncPost, {
         onMutate: async ({ payload }: { payload: any }) => {
-          await client.cancelQueries(key)
-          const snapshot = client.getQueryData(key)
+          await client.cancelQueries(key);
+          const snapshot = client.getQueryData(key);
           client.setQueryData(key, (old: any) => {
-             if (old.data && old.data.results)
-               old.data.results = [payload, ...old.data.results]
-            return old
-          })
-          onMutate?.()
-          return { snapshot }
+            if (old.data && old.data.results)
+              old.data.results = [payload, ...old.data.results];
+            return old;
+          });
+          onMutate?.();
+          return { snapshot };
         },
         onError: (error: any, data: any, context: any) => {
-          client.setQueryData(key, context.snapshot)
-          onError?.(error)
+          client.setQueryData(key, context.snapshot);
+          onError?.(error);
         },
         onSettled: () => client.invalidateQueries(key),
         onSuccess,
-      })
+      });
     },
     useOptimisticPut: ({
       url,
@@ -69,28 +74,28 @@ export const useService = () => {
       onSuccess,
     }: IUseServiceOptimistic) => {
       const asyncPut = async ({ payload }: { payload: any }) =>
-        await Request.put(url, payload)
+        await Request.put(url, payload);
       return useMutation(asyncPut, {
         onMutate: async ({ payload }: { payload: any }) => {
-          await client.cancelQueries(key)
-          const snapshot = client.getQueryData(key)
+          await client.cancelQueries(key);
+          const snapshot = client.getQueryData(key);
           client.setQueryData(key, (old: any) => {
-             if (old.data && old.data.results)
-               old.data.results = old.data.results.map((item: any) =>
-                 item.id == id ? payload : item
-               )
-            return old
-          })
-          onMutate?.()
-          return { snapshot }
+            if (old.data && old.data.results)
+              old.data.results = old.data.results.map((item: any) =>
+                item.id == id ? payload : item
+              );
+            return old;
+          });
+          onMutate?.();
+          return { snapshot };
         },
         onError: (error: any, data: any, context: any) => {
-          client.setQueryData(key, context.snapshot)
-          onError?.(error)
+          client.setQueryData(key, context.snapshot);
+          onError?.(error);
         },
         onSuccess,
         onSettled: () => client.invalidateQueries(key),
-      })
+      });
     },
     useOptimisticDelete: ({
       url,
@@ -101,28 +106,28 @@ export const useService = () => {
       onError,
       onSuccess,
     }: IUseServiceOptimistic) => {
-      const asyncDelete = async () => await Request.delete(url, { params })
+      const asyncDelete = async () => await Request.delete(url, { params });
       return useMutation(asyncDelete, {
         onMutate: async () => {
-          await client.cancelQueries(key)
-          const snapshot = client.getQueryData(key)
+          await client.cancelQueries(key);
+          const snapshot = client.getQueryData(key);
           client.setQueryData(key, (old: any) => {
-           if (old.data && old.data.results)
-             old.data.results = old?.data?.results.filter(
-               (item: any) => item.id != id
-             )
-            return old
-          })
-          onMutate?.()
-          return { snapshot }
+            if (old.data && old.data.results)
+              old.data.results = old?.data?.results.filter(
+                (item: any) => item.id != id
+              );
+            return old;
+          });
+          onMutate?.();
+          return { snapshot };
         },
         onError: (error: any, data: any, context: any) => {
-          client.setQueryData(key, context.snapshot)
-          onError?.(error)
+          client.setQueryData(key, context.snapshot);
+          onError?.(error);
         },
         onSettled: () => client.invalidateQueries(key),
         onSuccess,
-      })
+      });
     },
-  }
-}
+  };
+};

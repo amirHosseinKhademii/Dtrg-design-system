@@ -3,6 +3,7 @@ import { classNames } from "utils";
 import { useToggle } from "hooks/use-toggle";
 import { TableCell } from "../table-cell";
 import { TableRowLoading } from "./table-row-loading";
+import { ITableRow } from "../types/table";
 
 export const TableRow = memo(
   ({
